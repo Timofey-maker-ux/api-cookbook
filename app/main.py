@@ -30,8 +30,8 @@ async def root():
 @app.get(
     "/recipes", response_model=List[schemas.RecipeListOut], summary="Список рецептов"
 )
-async def read_recipes():
-    return await crud.get_recipes(Depends(get_db))
+async def read_recipes(db: AsyncSession = Depends(get_db)):
+    return await crud.get_recipes(db)
 
 
 @app.get(
@@ -39,8 +39,7 @@ async def read_recipes():
     response_model=schemas.RecipeDetailOut,
     summary="Детальная информация о рецепте",
 )
-async def read_recipe(recipe_id: int):
-    db: AsyncSession = Depends(get_db)
+async def read_recipe(recipe_id: int, db: AsyncSession = Depends(get_db)):
     recipe = await crud.get_recipe(db, recipe_id)
     if not recipe:
         raise HTTPException(status_code=404, detail="Рецепт не найден")

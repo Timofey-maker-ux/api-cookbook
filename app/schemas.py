@@ -1,6 +1,6 @@
 from typing import List
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class IngredientBase(BaseModel):
@@ -15,8 +15,7 @@ class IngredientCreate(IngredientBase):
 class IngredientOut(IngredientBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class RecipeBase(BaseModel):
@@ -35,8 +34,7 @@ class RecipeListOut(BaseModel):
     cook_time: int
     views: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class RecipeDetailOut(RecipeBase):
@@ -44,5 +42,4 @@ class RecipeDetailOut(RecipeBase):
     views: int
     ingredients: List[IngredientOut]
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)

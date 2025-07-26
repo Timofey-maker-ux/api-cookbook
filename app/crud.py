@@ -1,6 +1,6 @@
 from typing import Any
 
-from sqlalchemy import select, Column
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
@@ -10,9 +10,7 @@ from . import models, schemas
 async def get_recipes(db: AsyncSession):
     result = await db.execute(
         select(models.Recipe)
-        .options(
-            selectinload(models.Recipe.ingredients)
-        )
+        .options(selectinload(models.Recipe.ingredients))
         .order_by(models.Recipe.views.desc(), models.Recipe.cook_time.asc())
     )
     return result.scalars().all()
