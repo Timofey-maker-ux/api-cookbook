@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cookbook</title>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<h1>Cookbook</h1>
+
+<div id="content">
+  <button id="show-list" class="nav-button">Показать список рецептов</button>
+  <button id="show-create" class="nav-button">Создать новый рецепт</button>
+
+  <div id="recipe-list" style="display:none;">
+    <h2>Список рецептов</h2>
+    <ul id="recipes"></ul>
+  </div>
+
+  <div id="recipe-detail" style="display:none;">
+    <button id="back-to-list" class="nav-button">← Назад к списку</button>
+    <h2 id="detail-name"></h2>
+    <p><b>Время готовки:</b> <span id="detail-cook-time"></span> мин</p>
+    <p><b>Просмотров:</b> <span id="detail-views"></span></p>
+    <p><b>Описание:</b></p>
+    <p id="detail-description"></p>
+
+    <h3>Ингредиенты:</h3>
+    <ul id="detail-ingredients"></ul>
+  </div>
+
+  <div id="recipe-create" style="display:none;">
+    <button id="back-from-create" class="nav-button">← Назад к списку</button>
+    <h2>Создать новый рецепт</h2>
+    <form id="create-form">
+      <label for="name">Название рецепта:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="description">Описание:</label>
+      <textarea id="description" name="description" rows="3" required></textarea>
+
+      <label for="cook_time">Время готовки (минуты):</label>
+      <input type="number" id="cook_time" name="cook_time" min="1" required />
+
+      <h3>Ингредиенты</h3>
+      <div id="ingredients-list"></div>
+      <button type="button" id="add-ingredient">Добавить ингредиент</button>
+
+      <div class="error" id="form-error" style="display:none;"></div>
+
+      <button type="submit">Создать рецепт</button>
+    </form>
+  </div>
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>

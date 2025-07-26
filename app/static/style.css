@@ -1,0 +1,73 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  max-width: 800px;
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 8px;
+  cursor: pointer;
+  color: #2980b9;
+}
+
+li:hover {
+  text-decoration: underline;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input[type="text"], input[type="number"], textarea {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #27ae60;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #219150;
+}
+
+.ingredient {
+  margin-bottom: 8px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+
+.nav-button {
+  margin-bottom: 20px;
+  padding: 6px 12px;
+  background-color: #3498db;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background-color: #2980b9;
+}
